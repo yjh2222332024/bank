@@ -79,3 +79,18 @@
 
 ### 🛠️ AI 提示词建议 (For AI Vibe Coding)
 在生成 UI 代码时，请确保添加后缀指令：“*Use high-contrast flat design, avoid modern gradients/shadows, prioritize 1940s newspaper layout aesthetics.*”
+
+## 7. 技术栈约束 (Tech Stack Constraints)
+- **前端 (Frontend)**: 微信小程序原生框架 (WXML, WXSS, JavaScript)。禁止使用 Uniapp/Taro 等跨端框架，以确保最佳的原生性能和微信环境兼容性。
+- **后端 (Backend)**: 微信云开发 (Cloud Functions)。运行环境为 Node.js，所有敏感业务逻辑（转账、结算、角色分配）必须通过云函数实现。
+- **数据库 (Database)**: 微信云开发 NoSQL 文档型数据库。查询与写入必须严格符合 `docs/03_云数据库表结构_v1.2.md` 中的定义。
+- **存储 (Storage)**: 使用微信云存储管理多媒体资源（如印章图片、复古音效）。
+- **通信协议**: 仅限 `wx.cloud.callFunction`，禁止在小程序端直接操作数据库（除非是只读的静态配置数据）。
+
+## 8. 安全与资产红线 (Security & Asset Safety)
+- **原子性操作**: 凡涉及余额增加或减少，**必须**使用云端原子操作 `db.command.inc`。严禁在小程序前端计算余额后覆盖写入数据库。
+- **管理员权限**: 云函数执行管理员操作（如扣划资产、初始化角色）前，**必须**通过 `openid` 校验调用者是否属于 `config` 表中的管理员。
+- **防止越权**: 玩家仅允许查询并修改与其 `openid` 绑定的单一角色数据，所有转账操作必须由云函数交叉核验发送者和接收者的合法性。
+
+## 项目实现规范
+严格遵循 **“日志先行 (Log First)”** 原则：执行修改前先给技术方案让开发者审核，再写日志并保存到 `docs/logs/` 目录下，最后编码实现。如果是后端实现需要编写测试脚本保存到 `cloudfunctions/tests` 目录下，并确保无异常。如果是前端实现，需要开发者手动测试预览并确保无错误。如果是新增功能，需要在 `docs` 目录下更新相关文档。
