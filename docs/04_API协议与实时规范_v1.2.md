@@ -108,9 +108,14 @@
 
 ***
 
-## 三、 玩家入场与选角接口
+## 三、 玩家入场与选角接口 (扫码直达优化)
 
-### 1. 获取场次与选角状态 (get_session_status)
+### 1. 扫码准入逻辑说明 (Scan to Bind)
+*   **入口**: 玩家扫描带参数的小程序码进入（例如 `scene=sid:171,rid:ye_shujin`）。
+*   **前端逻辑**: 解析 `scene` 得到 `gameSessionId` 和 `roleId`。
+*   **全自动绑定**: 若 `roleId` 存在，前端应立即调用 `bind_role`。若绑定成功，直接由 Loading 页跳转至 `pages/asset`，实现“扫码即看”的极简体验。
+
+### 2. 获取场次与选角状态 (get_session_status)
 
 
 
