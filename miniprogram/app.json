@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/asset/index",
-    "pages/dm-panel/index"
+    "pages/dm-panel/index",
+    "pages/player/player"
   ],
   "window": {
     "backgroundTextStyle": "light",
