@@ -6,8 +6,7 @@
     "pages/player/player"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#000000",
+    "navigationBarBackgroundColor": "#2c1e0e",
     "navigationBarTitleText": "谍影钱庄",
     "navigationBarTextStyle": "white"
   },
