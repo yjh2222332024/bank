@@ -1,0 +1,10 @@
+/* app.wxss */
+page {
+  --paper: #E8E2D0;      /* 陈年羊皮纸 */
+  --ink: #2B2B2B;        /* 干涸墨黑 */
+  --stamp-red: #8B0000;  /* 机密印章红 */
+  --brass: #A67C00;       /* 脏黄铜金 */
+  --pencil-gray: #5C5C5C; /* 铅笔灰 */
+  background-color: var(--paper);
+  color: var(--ink);
+}

@@ -1,0 +1,192 @@
+/* pages/asset/index.wxss */
+.container {
+  padding: 30rpx;
+  background-color: var(--paper);
+  filter: contrast(1.05) sepia(0.2);
+  min-height: 100vh;
+}
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.6);
+  border: 2rpx solid var(--brass);
+  border-radius: 20rpx;
+  padding: 24rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 4rpx 4rpx 8rpx rgba(0,0,0,0.1);
+}
+
+.avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  border: 4rpx solid var(--brass);
+  margin-right: 24rpx;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.code-name {
+  font-size: 28rpx;
+  color: var(--pencil-gray);
+  background: #d4c3a2;
+  padding: 4rpx 16rpx;
+  border-radius: 20rpx;
+  align-self: flex-start;
+  margin-bottom: 8rpx;
+}
+
+.role-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: var(--ink);
+}
+
+.balance-section {
+  background: var(--ink);
+  border-radius: 24rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  color: #fff;
+  position: relative;
+  border: 2rpx solid var(--brass);
+  box-shadow: inset 0 0 20rpx rgba(166, 124, 0, 0.3);
+}
+
+.label {
+  font-size: 28rpx;
+  color: var(--brass);
+  letter-spacing: 2rpx;
+}
+
+.balance-number {
+  font-size: 80rpx;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  transition: transform 0.2s;
+}
+
+/* 印章动画 - 改为“密”字 */
+.stamp-css {
+  position: absolute;
+  top: 0;
+  right: 30rpx;
+  width: 120rpx;
+  height: 120rpx;
+  background-color: var(--stamp-red);
+  border-radius: 50%;
+  border: 4rpx solid var(--brass);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: stampAnim 0.4s ease-out forwards;
+  box-shadow: 0 0 20rpx rgba(139, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+.stamp-inner {
+  color: var(--brass);
+  font-size: 60rpx;
+  font-weight: bold;
+  font-family: 'KaiTi', '楷体', serif;
+  transform: rotate(-15deg);
+}
+
+@keyframes stampAnim {
+  0% { transform: scale(0) rotate(0deg); opacity: 0; }
+  50% { transform: scale(1.2) rotate(-10deg); opacity: 0.8; }
+  100% { transform: scale(1) rotate(-5deg); opacity: 1; }
+}
+
+.ledger {
+  background: rgba(255, 255, 255, 0.5);
+  border: 2rpx solid var(--brass);
+  border-radius: 16rpx;
+  padding: 20rpx;
+}
+
+.ledger-title {
+  font-size: 32rpx;
+  color: var(--stamp-red);
+  border-bottom: 2rpx solid var(--stamp-red);
+  padding-bottom: 10rpx;
+  margin-bottom: 20rpx;
+}
+
+.log-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  border-bottom: 1rpx dashed var(--brass);
+  font-size: 28rpx;
+}
+
+.log-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.log-type {
+  display: inline-block;
+  padding: 4rpx 12rpx;
+  border-radius: 20rpx;
+  font-size: 22rpx;
+  margin-bottom: 6rpx;
+  width: fit-content;
+}
+/* 交易类型样式调整 */
+.log-type.ADD { background: var(--brass); color: var(--ink); }  /* 入账使用黄铜金背景 */
+.log-type.SUB { background: var(--ink); color: #fff; }          /* 出账使用墨黑背景 */
+.log-type.TRANSFER { background: var(--stamp-red); color: #fff; }
+
+.log-reason {
+  color: var(--pencil-gray);
+  font-size: 26rpx;
+}
+
+.log-right {
+  text-align: right;
+}
+.log-amount {
+  font-weight: bold;
+  font-size: 32rpx;
+}
+.log-amount.add { color: var(--brass); }        /* 增加用黄铜金 */
+.log-amount.sub { 
+  color: var(--ink); 
+  text-decoration: line-through;                /* 减少用删除线，模拟油墨晕开效果 */
+  text-decoration-color: var(--stamp-red);
+  text-decoration-style: wavy;
+}
+.log-balance {
+  font-size: 24rpx;
+  color: var(--pencil-gray);
+  display: block;
+}
+.log-time {
+  font-size: 20rpx;
+  color: var(--pencil-gray);
+  opacity: 0.7;
+}
+
+.loading-more {
+  text-align: center;
+  padding: 20rpx;
+  color: var(--stamp-red);
+}
+.test-btn {
+  position: fixed;
+  bottom: 30rpx;
+  left: 30rpx;
+  right: 30rpx;
+  background: var(--stamp-red);
+  color: #fff;
+  text-align: center;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  z-index: 999;
+}

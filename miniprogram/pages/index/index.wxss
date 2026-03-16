@@ -1,0 +1,95 @@
+/* pages/index/index.wxss */
+.container {
+  padding: 30rpx;
+  min-height: 100vh;
+  background-color: var(--paper);
+  filter: contrast(1.05) sepia(0.2);
+}
+
+.title {
+  font-size: 48rpx;
+  color: var(--stamp-red);
+  text-align: center;
+  margin-bottom: 40rpx;
+  letter-spacing: 4rpx;
+  border-bottom: 2rpx solid var(--stamp-red);
+  padding-bottom: 20rpx;
+}
+
+.role-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30rpx;
+}
+
+.role-card {
+  display: flex;
+  background: rgba(255, 255, 255, 0.7);
+  border: 2rpx solid var(--brass);
+  border-radius: 16rpx;
+  padding: 24rpx;
+  position: relative;
+  box-shadow: 4rpx 4rpx 8rpx rgba(0,0,0,0.1);
+  transition: transform 0.1s ease;
+}
+
+.role-card:active {
+  transform: translateY(2rpx); /* 按压下沉效果 */
+  box-shadow: 2rpx 2rpx 4rpx rgba(0,0,0,0.1);
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  border: 4rpx solid var(--brass);
+  margin-right: 24rpx;
+}
+
+.info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.code-name {
+  font-size: 28rpx;
+  color: var(--pencil-gray);
+  background: #d4c3a2; /* 保留原有衬纸色，无需修改 */
+  display: inline-block;
+  padding: 4rpx 16rpx;
+  border-radius: 20rpx;
+  align-self: flex-start;
+  margin-bottom: 8rpx;
+}
+
+.role-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: var(--ink);
+  margin-bottom: 8rpx;
+}
+
+.desc {
+  font-size: 24rpx;
+  color: var(--pencil-gray);
+  line-height: 1.4;
+}
+
+.status {
+  position: absolute;
+  top: 16rpx;
+  right: 16rpx;
+  background: var(--stamp-red);
+  color: #fff;
+  padding: 4rpx 16rpx;
+  border-radius: 30rpx;
+  font-size: 24rpx;
+}
+
+.loading {
+  text-align: center;
+  padding: 40rpx;
+  color: var(--stamp-red);
+}

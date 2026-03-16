@@ -1,0 +1,27 @@
+{
+  "name": "bank",
+  "version": "1.0.0",
+  "description": "本项目是基于**微信小程序原生框架**与**微信云开发**构建的桌游资产管理系统。",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yjh2222332024/bank.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/yjh2222332024/bank/issues"
+  },
+  "homepage": "https://github.com/yjh2222332024/bank#readme",
+  "dependencies": {
+    "lottie-miniapp": "^1.9.1"
+  }
+}
