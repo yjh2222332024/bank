@@ -1,0 +1,43 @@
+<!-- pages/asset/index.wxml -->
+<view class="container retro-bg">
+  <!-- 角色卡片 -->
+  <view class="profile-card">
+    <image class="avatar" src="{{avatarUrl}}" mode="aspectFill"></image>
+    <view class="info">
+      <text class="code-name">{{codeName}}</text>
+      <text class="role-name">{{roleName}}</text>
+    </view>
+  </view>
+
+  <!-- 余额区域（带数字跳动） -->
+  <view class="balance-section">
+    <text class="label">大洋余额</text>
+    <view class="balance-number" id="balanceNumber">{{displayBalance}}</view>
+  <!-- 印章动画容器 -->
+  <view wx:if="{{showStamp}}" class="stamp-css">
+    <view class="stamp-inner">密</view>
+  </view>
+</view>
+
+  <!-- 交易流水 -->
+  <view class="ledger">
+    <view class="ledger-title">绝密存根</view>
+    <scroll-view scroll-y enhanced show-scrollbar="{{false}}" style="max-height: 700rpx;">
+      <view wx:for="{{logs}}" wx:key="logId" class="log-item">
+        <view class="log-left">
+          <text class="log-type {{item.tradeType}}">{{formatType(item.tradeType)}}</text>
+          <text class="log-reason">{{item.source}}</text>
+        </view>
+        <view class="log-right">
+          <text class="log-amount {{item.tradeType === 'ADD' ? 'add' : 'sub'}}">
+            {{item.tradeType === 'ADD' ? '+' : '-'}}{{item.amount}}
+          </text>
+          <text class="log-balance">{{item.balanceAfter}}</text>
+          <text class="log-time">{{formatTime(item.timestamp)}}</text>
+        </view>
+      </view>
+      <view class="loading-more" wx:if="{{hasMore}}" bindtap="loadMore">加载更多</view>
+    </scroll-view>
+  </view>
+</view>
+<view class="test-btn" bindtap="testAddMoney">测试+5000</view>

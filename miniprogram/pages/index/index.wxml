@@ -1,0 +1,18 @@
+<!-- pages/index/index.wxml -->
+<view class="container retro-bg">
+  <view class="title">🕵️ 角色认领</view>
+  <view class="role-list">
+    <block wx:for="{{roles}}" wx:key="roleId">
+      <view class="role-card" bindtap="onSelectRole" data-role="{{item}}">
+        <image class="avatar" src="{{item.avatarUrl || '/images/default-avatar.png'}}" mode="aspectFill"></image>
+        <view class="info">
+          <view class="code-name">{{item.codeName}}</view>
+          <view class="role-name">{{item.roleName}}</view>
+          <view class="desc">{{item.description || '暂无简介'}}</view>
+        </view>
+        <view class="status" wx:if="{{item.occupied}}">已占</view>
+      </view>
+    </block>
+  </view>
+  <view class="loading" wx:if="{{loading}}">加载中...</view>
+</view>

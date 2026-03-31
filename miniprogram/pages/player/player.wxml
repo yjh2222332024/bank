@@ -1,0 +1,40 @@
+<view class="container">
+  <!-- 加载状态（数据未到时显示） -->
+  <view class="loading" wx:if="{{!hasData}}">正在解码密信...</view>
+
+  <!-- 角色资产卡片 -->
+  <view class="card" wx:else>
+    <view class="card-header">
+      <text class="role-name">代号：{{roleInfo.codeName}}</text>
+      <text class="real-name">{{roleInfo.roleName}}</text>
+    </view>
+    <view class="balance-area">
+      <text class="balance-label">当前资产</text>
+      <view class="amount-wrapper">
+        <!-- 数字跳动效果 -->
+        <text class="amount {{balanceAnim ? 'pop' : ''}}">¥ {{balance}}</text>
+        <!-- 实时标记 -->
+        <view class="live-badge">LIVE</view>
+      </view>
+    </view>
+    <!-- 印章动效 -->
+    <view class="stamp {{stampAnim ? 'stamp-anim' : ''}}">绝密</view>
+  </view>
+
+  <!-- 资金流水标题（先留空，后续接入真实数据） -->
+  <view class="section-title">
+    <text>资金流水</text>
+    <text class="section-subtitle">最近3笔</text>
+  </view>
+
+  <!-- 流水列表（暂时静态，后续改为动态） -->
+  <view class="transaction-list">
+    <view class="transaction-item">
+      <view class="tx-left">
+        <text class="tx-type">系统发放</text>
+        <text class="tx-time">14:30</text>
+      </view>
+      <text class="tx-amount income">+ 80000</text>
+    </view>
+  </view>
+</view>
